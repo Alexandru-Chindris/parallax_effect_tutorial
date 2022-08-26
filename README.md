@@ -3,22 +3,6 @@
 
 # IT: Realizzazione di un effetto di parallasse.
 
----
-id: 2022-08-26-0
-titolo: Come creare un semplice effetto di parallasse per la tua pagina web
-featured: true
-autore: Alexandru Ioan Chindris
-data: 2022-08-26
-cover: .webp
-introduzione: Questo post spiega come creare un effetto di parallasse per il proprio sito web.
-sezione: Blog
-categorie:
-  - Blog
-  - Web developing
-  - Java Script
-  - Front End
----
-
 ###### Tempo di lettura: 
 
 ## Introduzione
