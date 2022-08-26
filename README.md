@@ -14,7 +14,7 @@ categorie:
   - Front End
 ---
 
-######Tempo di lettura: 
+###### Tempo di lettura: 
 
 ## Introduzione
 
