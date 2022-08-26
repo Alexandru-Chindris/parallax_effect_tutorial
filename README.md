@@ -3,6 +3,22 @@
 
 # IT: Realizzazione di un effetto di parallasse.
 
+---
+id: 2022-08-26-0
+titolo: Come creare un semplice effetto di parallasse per la tua pagina web
+featured: true
+autore: Alexandru Ioan Chindris
+data: 2022-08-26
+cover: .webp
+introduzione: Questo post spiega come creare un effetto di parallasse per il proprio sito web.
+sezione: Blog
+categorie:
+  - Blog
+  - Web developing
+  - Java Script
+  - Front End
+---
+
 ###### Tempo di lettura: 
 
 ## Introduzione
@@ -24,6 +40,75 @@ In questo post andremo a scoprire come realizzare un semplice effetto di paralla
 
 
 
-## Realizziamo una pagina web
+## Inzio realizzazione
 
-Per cominciare creiamo una pagina HTML, CSS e Javascript
+Per cominciare creiamo una pagina HTML, CSS e Javascript generica. Ricordiamoci di collegare la pagina CSS e Javascript nel file HTML.
+
+```bash
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <title>Parallax Effect Tutorial</title>
+</head>
+<body>
+    <script src="script.js"></script> 
+</body>
+</html>
+```
+
+Proseguiamo creando 4 contenitori contenenti la classe "container" dentro al _body_ e inseriamo un header di livello 1 contenente il nostro testo. Aggiungiamo anche altre 4 classi ai vari contenitori.
+
+```bash
+    <div class="container a1"><h1>Lorem Ipsum</h1></div>
+    <div class="container b2"><h1>Lorem Ipsum</h1></div>
+    <div class="container c3"><h1>Lorem Ipsum</h1></div>
+    <div class="container d4"><h1>Lorem Ipsum</h1></div>
+```
+
+Ci spostiamo ora dentro al file CSS, dobbiamo definire le regole per le classi "_container_" "_(a1)_""_(b2)_""_(c3)_""_(d4)_". Iniziamo definendo le dimensioni dei 4 contenitori che abbiamo predisposto, successivamente aggiungiamo delle regole per orientare il nostro testo verso il centro. Dentro alle classi 
+
+```bash
+*{
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+
+**.container{
+  width: 100%;
+  height: 600px;
+  text-align: center;
+}**
+
+.a1{
+  background-image: url(src/img/paesaggio.png);
+  background-size: cover;
+}
+
+.b2{
+    background-image: url(src/img/animale.png);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.c3{
+    background-image: url(src/img/polo.png);
+    background-size: cover;
+}
+
+.d4{
+    background-image: url(src/img/orso.png);
+    background-size: cover;
+}
+
+```
+
+
+
+
+
+
