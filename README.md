@@ -3,7 +3,8 @@
 
 # IT: Realizzazione di un effetto di parallasse.
 
-###### Tempo di lettura: 
+###### Tempo di lettura: 5'
+###### Tempo di realizzazione: 25'
 
 ## Introduzione
 
@@ -24,7 +25,7 @@ In questo post andremo a scoprire come realizzare un semplice effetto di paralla
 
 
 
-## Inzio realizzazione
+## Fase preliminare
 
 Per cominciare creiamo una pagina HTML, CSS e Javascript generica. Ricordiamoci di collegare la pagina CSS e Javascript nel file HTML.
 
@@ -44,7 +45,7 @@ Per cominciare creiamo una pagina HTML, CSS e Javascript generica. Ricordiamoci 
 </html>
 ```
 
-Proseguiamo creando 4 contenitori contenenti la classe "container" dentro al _body_ e inseriamo un header di livello 1 contenente il nostro testo. Aggiungiamo anche altre 4 classi ai vari contenitori.
+Proseguiamo creando 4 contenitori contenenti la classe "container" e inseriamo un header di livello 1 contenente il nostro testo. Aggiungiamo anche altre 4 classi ai vari contenitori, ci aiuteranno in futuro per l'assegnazione delle immagini.
 
 ```bash
     <div class="container a1"><h1>Lorem Ipsum</h1></div>
@@ -53,7 +54,7 @@ Proseguiamo creando 4 contenitori contenenti la classe "container" dentro al _bo
     <div class="container d4"><h1>Lorem Ipsum</h1></div>
 ```
 
-Ci spostiamo ora dentro al file CSS, dobbiamo definire le regole per le classi "_container_" "_(a1)_""_(b2)_""_(c3)_""_(d4)_". Iniziamo definendo le dimensioni dei 4 contenitori che abbiamo predisposto, successivamente aggiungiamo delle regole per orientare il nostro testo verso il centro. Dentro alle classi 
+Ci spostiamo ora dentro al file CSS, dobbiamo definire le regole per le classi "_container_" "_(a1)_""_(b2)_""_(c3)_""_(d4)_". Iniziamo definendo le dimensioni dei 4 contenitori che abbiamo predisposto, successivamente aggiungiamo delle regole per orientare il nostro testo verso il centro. Inseriamo 4 immagini diverse all'interno dei nostri contenitori, le immagini che ho usato io sono state prese da [questo sito internet](https://www.pexels.com/it-it/).
 
 ```bash
 *{
@@ -62,11 +63,11 @@ Ci spostiamo ora dentro al file CSS, dobbiamo definire le regole per le classi "
   margin: 0px;
 }
 
-**.container{
+.container{
   width: 100%;
   height: 600px;
   text-align: center;
-}**
+}
 
 .a1{
   background-image: url(src/img/paesaggio.png);
@@ -76,7 +77,6 @@ Ci spostiamo ora dentro al file CSS, dobbiamo definire le regole per le classi "
 .b2{
     background-image: url(src/img/animale.png);
     background-size: cover;
-    background-attachment: fixed;
 }
 
 .c3{
@@ -91,7 +91,47 @@ Ci spostiamo ora dentro al file CSS, dobbiamo definire le regole per le classi "
 
 ```
 
+## Primo effetto di parallasse 
 
+Bene! Ora disponiamo di una pagina web con 4 contenitori e ognuno di essi contiene un'immagine diversa. Siamo pronti per realizzare il primo e vero effetto di parallasse!
+La prima immagine che andremo a modificare sarà quella presente nella classe _b2_ quindi _animale.png_. Aggiungiamo una semplice linea di codice alla classe _b2_.
+
+```bash
+  background-attachment: fixed;
+```
+Aggiornando la nostra pagina noteremo subito che scrollando la pagina web l'immagine del contenitore _b2_ non si sposterà ma bensi lo farà il testo che contiene. È bastata una sola linea di codice per creare il primo effetto di parallasse. Incredibile vero?
+
+
+## Secondo effetto di parallasse 
+
+Se nel primo caso l'effetto di paralasse è stato abbastanza semplice da realizzare ora le cose si complicano un po'.
+Durante la fase preliminare abbiamo creato un file Javascript assieme ai file HTML e CSS. Bene, è il momento di utilizzarlo!
+Aggiungiamo ora un _id_ al contenitore che ospiterà l'effetto di parallasse. In questo caso il contenitore scelto è _d4_, aggiungiamo quindi l'id nella stringa.
+
+```bash
+    <div class="container a1"><h1>Lorem Ipsum</h1></div>
+    <div class="container b2"><h1>Lorem Ipsum</h1></div>
+    <div class="container c3"><h1>Lorem Ipsum</h1></div>
+    <div class="container d4" id="moving"><h1>Lorem Ipsum</h1></div>
+```
+
+Spostiamo nel file Javascript ora dobbiamo prendere il nostro contenitore e assegnarglo ad una variabile in Javascript. Per creare il prossimo effetto di parallasse utilizziamo il metodo _addEventListener()_ che appena rileverà lo scroll della pagina eseguira una funzione. Creiamo infine una nuova varibile chiamata offset, essa ci aiuterà a riconoscere le Y iniziali e finali del movimento della rotellina del muose. Facendo così possiamo modificare le Y della nostra immagine grazie alla varibile _offset_ scegliendo un "passo" a nostra scelta.
+
+```bash
+let element = document.getElementById("moving");
+
+window.addEventListener("scroll", function(){
+    let offset = window.pageYOffset;
+    element.style.backgroundPositionY = offset *0.7 + "px";
+})
+
+```
+
+## Risultato
+
+Puoi trovare il mio risultato qua sotto, spero che questo tutorial ti sia stato utile. Ti invito a creare una tua versione della pagina modificata da te, sbizzarisciti e dopo manda il link nella sezione commenti! A presto, buon smanettamento!
+
+- <a href="https://bit.ly/parallax_effect_tutorial" target="_blank">Il mio risultato</a>
 
 
 
